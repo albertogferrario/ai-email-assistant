@@ -1,5 +1,5 @@
-from src import Application
+from src.misc import init_application, init_logging
 
 if __name__ == '__main__':
-    application = Application()
-    application.mainloop()
+    init_logging()
+    init_application()
