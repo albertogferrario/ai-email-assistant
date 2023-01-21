@@ -94,7 +94,13 @@ class Application(tk.Tk):
             max_tokens=config.OPENAI_COMPLETION_MAX_TOKENS,
         )
 
-        response = response['choices'][0]['text'].strip().lower().replace(".", "").replace("risposta: ", "")
+        response = response['choices'][0]['text'].strip().lower().replace(".", "").replace("'", "\"")
+
+        if response.find(": ") >= 0:
+            response = response.split(": ")[1]
+
+        if response.find("[[") == -1:
+            response = f"[{response}]"
 
         try:
             response = json.loads(response)
