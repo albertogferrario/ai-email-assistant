@@ -1,0 +1,29 @@
+name: Build and Release
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Python setup
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install -r requirements.dev.txt
+
+      - name: Build
+        run: scripts/build ..
+
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: dist/ai_email_assistant.exe
