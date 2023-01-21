@@ -3,4 +3,5 @@
 /build
 /dist
 
+.ini
 ai_email_assistant.exe.spec
