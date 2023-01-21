@@ -32,3 +32,4 @@ class ArgumentParser(argparse.ArgumentParser):
         group = self.add_argument_group('openai')
 
         group.add_argument('--openai-api-key')
+        group.add_argument('--openai-completion-max-tokens')
