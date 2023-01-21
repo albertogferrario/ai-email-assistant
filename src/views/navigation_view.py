@@ -41,10 +41,10 @@ class NavigationView(AbstractFrame):
 
             self.__frames[frame_type] = frame
 
-        self.__back_button = ttk.Button(self, text="Back", command=lambda: self.__back_button_command())
+        self.__back_button = ttk.Button(self, text="Indietro", command=lambda: self.__back_button_command())
         self.__back_button.grid(row=1, column=0, padx=10, pady=10)
 
-        self.__next_button = ttk.Button(self, text="Next", command=lambda: self.__next_button_command())
+        self.__next_button = ttk.Button(self, text="Avanti", command=lambda: self.__next_button_command())
         self.__next_button.grid(row=1, column=1, padx=10, pady=10)
 
         self.__set_current_frame(0)
