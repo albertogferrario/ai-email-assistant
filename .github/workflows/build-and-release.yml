@@ -25,7 +25,7 @@ jobs:
         run: pip install -r requirements.dev.txt
 
       - name: Build
-        run: pyinstaller main.py -F -n=ai_email_assistant.exe
+        run: scripts/build ..
 
       - name: Release
         uses: softprops/action-gh-release@v1
