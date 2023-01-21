@@ -1,4 +1,4 @@
-# ai-email-assistant
+# AI Email Assistant
 
 ## Configuration
 
