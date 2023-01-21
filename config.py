@@ -3,6 +3,7 @@ from configparser import ConfigParser
 from logging import getLevelName
 from os.path import exists, join
 from pathlib import Path
+from tkinter.messagebox import showerror
 from typing import Any, Optional, Tuple, Type, Union
 
 from src import ArgumentParser
@@ -70,4 +71,6 @@ OPENAI_COMPLETION_MAX_TOKENS: int = _get_config(
 )
 
 if OPENAI_API_KEY is None:
-    raise ValueError("Configuration error. Missing OpenAI API key.")
+    showerror("Errore", "Errore di configurazione. Chiave API per OpenAI non rilevata.")
+
+    raise ValueError  # fixme: message
