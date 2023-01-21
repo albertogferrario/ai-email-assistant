@@ -2,3 +2,5 @@
 /.venv
 /build
 /dist
+
+ai_email_assistant.exe.spec
