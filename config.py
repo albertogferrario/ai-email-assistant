@@ -3,7 +3,7 @@ from configparser import ConfigParser
 from logging import getLevelName
 from os.path import exists, join
 from pathlib import Path
-from typing import Any, List, Optional, Tuple, Type, Union
+from typing import Any, Optional, Tuple, Type, Union
 
 from src import ArgumentParser
 from src.enums import LoggingMode
@@ -60,13 +60,14 @@ LOGGING_FORMAT: Optional[str] = _get_config(('LOGGING', 'FORMAT'), 'logging_form
 # WINDOW
 # ----------------------------------------------------------------------------------------------------------------------
 WINDOW_TITLE: str = _get_config(('WINDOW', 'TITLE'), 'window_title', fallback='APP')
-WINDOW_WIDTH: int = _get_config(('WINDOW', 'WIDTH'), 'window_width', int, 800)
-WINDOW_HEIGHT: int = _get_config(('WINDOW', 'HEIGHT'), 'window_height', int, 600)
 
 # ----------------------------------------------------------------------------------------------------------------------
 # OPENAI
 # ----------------------------------------------------------------------------------------------------------------------
 OPENAI_API_KEY: Optional[str] = _get_config(('OPENAI', 'API_KEY'), 'openai_api_key')
+OPENAI_COMPLETION_MAX_TOKENS: int = _get_config(
+    ('OPENAI', 'COMPLETION_MAX_TOKENS'), 'openai_completion_max_tokens', fallback=200
+)
 
 if OPENAI_API_KEY is None:
     raise ValueError("Configuration error. Missing OpenAI API key.")
